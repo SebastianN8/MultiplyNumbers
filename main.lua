@@ -44,12 +44,6 @@ local function addingUp(event)
 			multipleTwo = multipleTwo - 1 
 		until multipleTwo == 0
 		myResult.text = theAddition
-	elseif multipleTwo < 0 then
-		repeat
-			theAddition = theAddition + multipleOne
-			multipleTwo = multipleTwo + 1 
-		until multipleTwo == 0
-		myResult.text = theAddition
 	end
 end
 
