@@ -28,26 +28,34 @@ myButton.y = display.contentCenterY + 200
 myButton.id = 'the initiator'
 
 -- the result
-local myResult = display.newText('', display.contentCenterX + 400, 600, native.SystemFont, 100)
+local myResult = display.newText('', display.contentCenterX + 700, 600, native.SystemFont, 150)
 
--- Variables
-local multipleOne = tonumber(mutlipleOneBox.text)
-local multipleTwo = tonumber(mutlipleTwoBox.text)
-local theAddition = 0
 --function
-
-local function theLoop(times)
-	for loopTimes = times, 1, -1 do
-		theAddition = theAddition + multipleOne
-	end
-end
-
 local function addingUp(event)
-	if multipleOne > 0 and multipleTwo > 0 then
-		theLoop(multipleTwo)
+	-- Variables
+	local multipleOne = tonumber(mutlipleOneBox.text)
+	local multipleTwo = tonumber(mutlipleTwoBox.text)
+	local theAddition = 0
+
+	-- If statement
+	if multipleTwo > 0 then
+		repeat
+			theAddition = theAddition + multipleOne
+			multipleTwo = multipleTwo - 1 
+		until multipleTwo == 0
+		myResult.text = theAddition
+	elseif multipleTwo < 0 then
+		repeat
+			theAddition = theAddition + multipleOne
+			multipleTwo = multipleTwo + 1 
+		until multipleTwo == 0
 		myResult.text = theAddition
 	end
 end
+
+
+
+
 
 -- Event Listener
 myButton:addEventListener('touch', addingUp)
